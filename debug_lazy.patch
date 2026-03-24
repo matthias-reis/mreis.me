@@ -1,0 +1,11 @@
+--- node_modules/@solidjs/start/dist/router/lazyRoute.js
++++ node_modules/@solidjs/start/dist/router/lazyRoute.js
+@@ -8,6 +8,8 @@
+             let manifest = import.meta.env.SSR ? serverManifest : clientManifest;
+             // import() throws if a module doesn't exist, which includes any
+             // modules loaded by the route itself, so it's important we catch here
++            const _i = manifest.inputs[component.src].import();
++            if (_i === undefined) return { default: () => [] };
+             const mod = await manifest.inputs[component.src].import().catch(() => null);
+             // fallback to an empty component as any errors will surface in the vite overlay
+             if (!mod)
