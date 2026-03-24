@@ -1,9 +1,10 @@
 import { Title, Meta } from "@solidjs/meta";
 import { H1, H2, H3 } from "~/components/Typography";
-import { CtaButton } from "~/components/CtaButton";
+import { CtaButton, CtaButtonSecondary } from "~/components/CtaButton";
 import { Box } from "~/components/Box";
 import { Check, Download } from "lucide-solid";
 import { Skills } from "~/components/Skills";
+import { ProfileBox } from "~/components/ProfileBox";
 
 export default function CVPage() {
   const experiences = [
@@ -107,27 +108,20 @@ export default function CVPage() {
               A summary of my professional journey, focusing on my roles,
               responsibilities, and key successes over the years.
             </p>
-
-            <CtaButton
-              href="/reference/Freelance-Portfolio.pdf"
-              download="Matthias_Reis_CV.pdf"
-              class="inline-flex items-center shrink-0 hover:!bg-col-bg hover:opacity-90 transition-opacity"
-            >
-              <Download class="w-5 h-5 mr-2" />
-              Download PDF
-            </CtaButton>
+            <div class="flex gap-4">
+              <CtaButtonSecondary
+                href="/reference/cv.pdf"
+                download="Matthias_Reis_CV.pdf"
+                class="inline-flex items-center"
+              >
+                <Download class="w-5 h-5 mr-2" />
+                Download PDF
+              </CtaButtonSecondary>
+              <CtaButton href="/contact">Contact Me</CtaButton>
+            </div>
           </div>
 
-          <div class="bg-col-fg text-col-bg p-4 md:p-6 flex flex-col items-center gap-4 shrink-0 mt-4 md:mt-0 mx-auto md:mx-0 rounded-3xl">
-            <img
-              src="/reference/matze.jpg"
-              alt="Matthias Reis"
-              class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-full border-4 border-col-bg"
-            />
-            <p class="font-bold text-3xl font-serif tracking-tight">
-              Matthias Reis
-            </p>
-          </div>
+          <ProfileBox />
         </div>
 
         {/* Timeline Section */}

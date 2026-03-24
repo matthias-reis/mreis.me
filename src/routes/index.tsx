@@ -1,5 +1,5 @@
 import { For } from "solid-js";
-import { CtaButton } from "~/components/CtaButton";
+import { CtaButton, CtaButtonSecondary } from "~/components/CtaButton";
 import { H1, H2, H3 } from "~/components/Typography";
 import { Box } from "~/components/Box";
 import { Skills } from "~/components/Skills";
@@ -83,12 +83,13 @@ export default function Home() {
           delivering complex company-wide technical transformations.
         </p>
         <div class="flex justify-center flex-wrap gap-4 pt-8">
-          <CtaButton href="/cv" class="no-underline">
+          <CtaButtonSecondary href="/cv">
             View Professional CV
-          </CtaButton>
-          <CtaButton href="/portfolio" class="no-underline">
+          </CtaButtonSecondary>
+          <CtaButtonSecondary href="/portfolio">
             View Portfolio
-          </CtaButton>
+          </CtaButtonSecondary>
+          <CtaButton href="/contact">Contact Me</CtaButton>
         </div>
       </section>
 

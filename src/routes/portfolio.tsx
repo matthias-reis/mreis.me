@@ -2,6 +2,8 @@ import { For } from "solid-js";
 import { H1, H2, H3 } from "~/components/Typography";
 import { Skills } from "~/components/Skills";
 import { A } from "@solidjs/router";
+import { CtaButton, CtaButtonSecondary } from "~/components/CtaButton";
+import { Download } from "lucide-solid";
 
 export default function Portfolio() {
   const skillsData = [
@@ -97,6 +99,19 @@ export default function Portfolio() {
           thinking, production mindset, and real hands-on implementation — zero
           handoff friction.
         </p>
+        <div class="flex gap-4">
+          <CtaButtonSecondary
+            href="/reference/portfolio.pdf"
+            download="Matthias_Reis_Portfolio.pdf"
+            class="inline-flex items-center"
+          >
+            <Download class="w-5 h-5 mr-2" />
+            Download PDF
+          </CtaButtonSecondary>
+          <CtaButton href="/contact" class="inline-flex items-center">
+            Let's talk
+          </CtaButton>
+        </div>
       </section>
 
       <div class="mb-32">
