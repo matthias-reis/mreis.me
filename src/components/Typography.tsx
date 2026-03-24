@@ -10,11 +10,17 @@ export const H1 = (props: JSX.HTMLAttributes<HTMLHeadingElement>) => {
     </h1>
   );
 };
-export const H2 = (props: JSX.HTMLAttributes<HTMLHeadingElement>) => {
+export const H2 = (
+  props: JSX.HTMLAttributes<HTMLHeadingElement> & { noMargin?: boolean },
+) => {
   return (
     <h2
       {...props}
-      class={`text-4xl mb-2 mt-5 font-black tracking-tight ${props.class || ""}`}
+      class={`text-4xl font-black tracking-tight ${props.class || ""}`}
+      classList={{
+        "m-0": props.noMargin,
+        "mb-2 mt-5": !props.noMargin,
+      }}
     >
       {props.children}
     </h2>

@@ -30,6 +30,14 @@
   color-scheme: light dark;
 }
 
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
 body {
   background-color: var(--color-col-bg);
   color: var(--color-col-fg);

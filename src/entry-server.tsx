@@ -9,15 +9,6 @@ export default createHandler(() => (
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
-          <script
-            innerHTML={`
-              (function() {
-                var match = document.cookie.match(/(?:^|;)\\s*theme=([^;]*)/);
-                var theme = match ? match[1] : 'light dark';
-                document.documentElement.style.colorScheme = theme;
-              })();
-            `}
-          />
           {assets}
         </head>
         <body>

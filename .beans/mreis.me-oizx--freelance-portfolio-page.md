@@ -12,6 +12,6 @@ parent: mreis.me-ysti
 A page highlighting freelance work, focusing on specific skills and services offered.
 
 ## Tasks
-- [ ] Parse Freelance PDF for skills/services
+- [ ] Parse reference/Freelance-Portfolio.pdf for skills/services
 - [ ] Design Portfolio / Services layout
 - [ ] Highlight key past projects
