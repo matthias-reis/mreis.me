@@ -52,13 +52,13 @@ export default function Home() {
 
   const impactData = [
     {
-      title: "Scale Frontend Monorepo Migration",
-      content: "1.4M+ LOC, 40+ contributors.",
+      title: "Frontend Monorepo & Company Wide Migration Projects",
+      content: "1.4M+ Linse of Code, Steering a community of 40+ contributors.",
     },
     {
-      title: "Company-wide Platform Ownership",
+      title: "Technical Platform Ownership",
       content:
-        "Ownership of a high-traffic frontend platform delivering ~600 req/s.",
+        "Ownership of a high-traffic frontend platform delivering up to 600 req/s with server side rendering technology.",
     },
     {
       title: "Scalable Standards",
@@ -71,7 +71,7 @@ export default function Home() {
     <main class="max-w-4xl mx-auto p-8">
       <section class="space-y-6 mb-32 text-center animate-fade-in-up">
         <H1 class="mx-auto max-w-3xl">Engineering Lead & Software Architect</H1>
-        <p class="text-xl leading-relaxed text-[var(--color-fg-muted)] max-w-2xl mx-auto mt-8">
+        <p class="text-xl leading-relaxed max-w-2xl mx-auto mt-8">
           I am an engineer with over 20 years of experience building and
           evolving high‑traffic large scale web platforms. I seek leadership
           roles where I can drive technical strategy and scale engineering

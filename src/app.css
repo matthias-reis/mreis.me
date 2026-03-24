@@ -22,11 +22,6 @@
 }
 
 :root {
-  --color-bg-light: #f8fafc;
-  --color-bg-dark: #0f172a;
-  --color-fg-light: #0f172a;
-  --color-fg-dark: #f8fafc;
-  
   color-scheme: light dark;
 }
 
