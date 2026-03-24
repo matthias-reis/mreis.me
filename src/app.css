@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource/dm-serif-display";
+
+@theme {
+  --hue-primary: 35;
+  --hue-main: 230;
+
+  --black: oklch(0.18 0.015 var(--hue-main));
+  --white: oklch(0.97 0.015 var(--hue-main));
+  --primary: oklch(0.68 0.17 var(--hue-primary));
+  
+  --font-sans: "DM Sans Variable", "DM Sans", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+
+  --color-col-bg: light-dark(var(--white), var(--black));
+  --color-col-fg: light-dark(var(--black), var(--white));
+
+  /* Primary oklch base color */
+  --color-col-hi-bg: var(--primary);
+  --color-col-hi-fg: var(--white);
+}
+
+:root {
+  --color-bg-light: #f8fafc;
+  --color-bg-dark: #0f172a;
+  --color-fg-light: #0f172a;
+  --color-fg-dark: #f8fafc;
+  
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--color-col-bg);
+  color: var(--color-col-fg);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background-color: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.2));
+}
