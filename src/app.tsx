@@ -3,11 +3,12 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import { clientOnly } from "@solidjs/start";
 import { MetaProvider } from "@solidjs/meta";
-import { A } from "@solidjs/router";
 import { Logo } from "~/components/Logo";
 import "./app.css";
 
-const ThemeToggle = clientOnly(() => import("./components/ThemeToggle").then(m => ({ default: m.ThemeToggle })));
+const ThemeToggle = clientOnly(() =>
+  import("./components/ThemeToggle").then((m) => ({ default: m.ThemeToggle })),
+);
 
 export default function App() {
   return (

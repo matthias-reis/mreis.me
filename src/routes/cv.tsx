@@ -5,6 +5,7 @@ import { Box } from "~/components/Box";
 import { Check, Download } from "lucide-solid";
 import { Skills } from "~/components/Skills";
 import { ProfileBox } from "~/components/ProfileBox";
+import { Buttons } from "~/components/Buttons";
 
 export default function CVPage() {
   const experiences = [
@@ -108,7 +109,7 @@ export default function CVPage() {
               A summary of my professional journey, focusing on my roles,
               responsibilities, and key successes over the years.
             </p>
-            <div class="flex gap-4">
+            <Buttons>
               <CtaButtonSecondary
                 href="/reference/cv.pdf"
                 download="Matthias_Reis_CV.pdf"
@@ -118,14 +119,14 @@ export default function CVPage() {
                 Download PDF
               </CtaButtonSecondary>
               <CtaButton href="/contact">Contact Me</CtaButton>
-            </div>
+            </Buttons>
           </div>
 
           <ProfileBox />
         </div>
 
         {/* Timeline Section */}
-        <div class="relative border-l-2 border-[var(--color-fg-muted)] ml-[5px] md:ml-[5px] space-y-12 pb-12 mt-16">
+        <div class="relative border-l-2 ml-3 space-y-12 pb-12 mt-16">
           {experiences.map((exp, index) => (
             <div class="relative pl-8 md:pl-10">
               {/* Timeline Dot - Aligned with the headline */}

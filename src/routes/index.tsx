@@ -3,6 +3,7 @@ import { CtaButton, CtaButtonSecondary } from "~/components/CtaButton";
 import { H1, H2, H3 } from "~/components/Typography";
 import { Box } from "~/components/Box";
 import { Skills } from "~/components/Skills";
+import { Buttons } from "~/components/Buttons";
 
 export default function Home() {
   const skillsData = [
@@ -68,7 +69,7 @@ export default function Home() {
   ];
 
   return (
-    <main class="max-w-4xl mx-auto p-8">
+    <main class="max-w-4xl mx-auto">
       <section class="space-y-6 mb-32 text-center animate-fade-in-up">
         <H1 class="mx-auto max-w-3xl">Engineering Lead & Software Architect</H1>
         <p class="text-xl leading-relaxed max-w-2xl mx-auto mt-8">
@@ -82,7 +83,7 @@ export default function Home() {
           defining frontend architecture in high scale web platforms, and
           delivering complex company-wide technical transformations.
         </p>
-        <div class="flex justify-center flex-wrap gap-4 pt-8">
+        <Buttons class="justify-center">
           <CtaButtonSecondary href="/cv">
             View Professional CV
           </CtaButtonSecondary>
@@ -90,40 +91,38 @@ export default function Home() {
             View Portfolio
           </CtaButtonSecondary>
           <CtaButton href="/contact">Contact Me</CtaButton>
+        </Buttons>
+      </section>
+
+      <section class="space-y-8 mt-20">
+        <H2 class="!mt-0">Skills & Expertise</H2>
+        <div class="space-y-6 max-w-3xl">
+          <For each={skillsData}>
+            {(category) => (
+              <div>
+                <H3 class="!mt-0 mb-3">{category.title}</H3>
+                <Skills
+                  skills={category.skills}
+                  class="leading-relaxed text-[var(--color-fg-muted)]"
+                />
+              </div>
+            )}
+          </For>
         </div>
       </section>
 
-      <div class="mb-32">
-        <section class="space-y-8">
-          <H2 class="!mt-0">Skills & Expertise</H2>
-          <div class="space-y-6 max-w-3xl">
-            <For each={skillsData}>
-              {(category) => (
-                <div>
-                  <H3 class="!mt-0 mb-3">{category.title}</H3>
-                  <Skills
-                    skills={category.skills}
-                    class="leading-relaxed text-[var(--color-fg-muted)]"
-                  />
-                </div>
-              )}
-            </For>
-          </div>
-        </section>
-
-        <section class="space-y-8">
-          <H2 class="mt-32">Selected Impact</H2>
-          <div class="space-y-6 max-w-3xl">
-            <For each={impactData}>
-              {(impact) => (
-                <Box title={impact.title}>
-                  <p class="m-0 text-md leading-relaxed">{impact.content}</p>
-                </Box>
-              )}
-            </For>
-          </div>
-        </section>
-      </div>
+      <section class="space-y-8">
+        <H2 class="mt-32">Selected Impact</H2>
+        <div class="space-y-6 max-w-3xl">
+          <For each={impactData}>
+            {(impact) => (
+              <Box title={impact.title}>
+                <p class="m-0 text-md leading-relaxed">{impact.content}</p>
+              </Box>
+            )}
+          </For>
+        </div>
+      </section>
     </main>
   );
 }
