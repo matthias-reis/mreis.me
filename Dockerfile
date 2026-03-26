@@ -3,8 +3,8 @@ FROM oven/bun:1 AS builder
 WORKDIR /app
 
 # Cache dependencies
-COPY package.json bun.lock patch-solid-start.js ./
-ARG CACHEBUST=1
+COPY package.json bun.lock ./
+ARG CACHEBUST=2
 RUN bun install --frozen-lockfile
 
 # Build application
