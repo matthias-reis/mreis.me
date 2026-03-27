@@ -6,7 +6,7 @@ import type { HastParseResult } from "hast-mds";
 import { transform } from "solid-mds";
 import type { PostMeta } from "~/lib/content";
 import { PostView, postComponentMap } from "~/components/post";
-import { SlidesView } from "~/components/slides";
+import { slidesComponentMap, SlidesView } from "~/components/slides";
 
 function apiBase() {
   const event = getRequestEvent();
@@ -32,9 +32,9 @@ export default function PostDetail() {
   const post = createMemo(() => {
     const hast = hastData();
     if (!hast) return null;
-    return transform<PostMeta>(
+    return transform<PostMeta, {}>(
       hast,
-      hast.global?.variant === "post" ? postComponentMap : {},
+      hast.global?.variant === "slides" ? slidesComponentMap : postComponentMap,
     );
   });
 

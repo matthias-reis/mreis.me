@@ -1,11 +1,31 @@
-import { For } from "solid-js";
+import { For, Show, Suspense } from "solid-js";
+import { A, createAsync, query } from "@solidjs/router";
+import type { RouteDefinition } from "@solidjs/router";
+import { getRequestEvent } from "solid-js/web";
+import type { PostMeta } from "~/lib/content";
 import { CtaButton, CtaButtonSecondary } from "~/components/CtaButton";
 import { H1, H2, H3 } from "~/components/Typography";
 import { Box } from "~/components/Box";
 import { Skills } from "~/components/Skills";
 import { Buttons } from "~/components/Buttons";
+import { PostCard } from "~/components/post";
+
+function apiBase() {
+  const event = getRequestEvent();
+  return event ? new URL(event.request.url).origin : "";
+}
+
+const getPosts = query(async () => {
+  const res = await fetch(`${apiBase()}/api/posts`);
+  return res.json() as Promise<PostMeta[]>;
+}, "posts");
+
+export const route: RouteDefinition = {
+  preload: () => getPosts(),
+};
 
 export default function Home() {
+  const latestPosts = createAsync(() => getPosts());
   const skillsData = [
     {
       title: "Leadership, People & Org",
@@ -109,6 +129,24 @@ export default function Home() {
             )}
           </For>
         </div>
+      </section>
+
+      <section class="space-y-8 mt-20">
+        <H2 class="!mt-0">Latest Posts</H2>
+        <Suspense>
+          <Show when={latestPosts()}>
+            {(posts) => (
+              <div class="grid grid-cols-2 gap-4 max-w-3xl">
+                <For each={posts().slice(0, 2)}>
+                  {(post) => <PostCard post={post} />}
+                </For>
+              </div>
+            )}
+          </Show>
+        </Suspense>
+        <A href="/posts" class="text-sm text-col-hi-bg hover:underline">
+          All posts →
+        </A>
       </section>
 
       <section class="space-y-8">

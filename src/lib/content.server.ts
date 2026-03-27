@@ -15,9 +15,11 @@ export function getAllPostMetas(): PostMeta[] {
     .sort((a, b) => (a.date && b.date ? b.date.localeCompare(a.date) : 0));
 }
 
-export function parsePostBySlug(slug: string): HastParseResult<PostMeta> | null {
+export function parsePostBySlug(
+  slug: string,
+): HastParseResult<PostMeta> | null {
   for (const raw of Object.values(rawFiles)) {
-    const parsed = parse<PostMeta>(raw);
+    const parsed = parse<PostMeta>(raw, new Set(["cta"]));
     if (parsed.global?.slug === slug) {
       return parsed;
     }

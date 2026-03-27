@@ -1,6 +1,6 @@
 import { createSignal, onCleanup, onMount, type Component } from "solid-js";
 import { A, useNavigate } from "@solidjs/router";
-import { transform } from "solid-mds";
+import { ComponentMap, transform } from "solid-mds";
 import type { PostMeta } from "~/lib/content";
 import { ChevronLeft, ChevronRight } from "lucide-solid";
 import { H1 } from "./Typography";
@@ -93,6 +93,8 @@ interface Slide {
   id: string;
   El: Component;
 }
+
+export const slidesComponentMap: ComponentMap = {};
 
 export function SlidesView(props: { meta: PostMeta; result: TransformResult }) {
   const contentSteps = Object.values(props.result.steps).sort(
