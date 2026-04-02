@@ -4,6 +4,7 @@ import { Suspense } from "solid-js";
 import { clientOnly } from "@solidjs/start";
 import { MetaProvider } from "@solidjs/meta";
 import { Logo } from "~/components/Logo";
+import { Tracking } from "~/components/Tracking";
 import "./app.css";
 
 const ThemeToggle = clientOnly(() =>
@@ -16,6 +17,7 @@ export default function App() {
       root={(props) => (
         <MetaProvider>
           <>
+            <Tracking />
             <Suspense
               fallback={<div class="p-4 font-sans text-col-fg">Loading...</div>}
             >
