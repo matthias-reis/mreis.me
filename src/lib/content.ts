@@ -4,4 +4,5 @@ export interface PostMeta {
   slug: string;
   variant: "post" | "slides";
   date?: string;
+  image?: string;
 }

@@ -1,5 +1,6 @@
 import { For, JSX, Show } from "solid-js";
 import { A } from "@solidjs/router";
+import { Title, Meta } from "@solidjs/meta";
 import type { ComponentMap, ParseResult, CustomBlockProps } from "solid-mds";
 import type { PostMeta } from "~/lib/content";
 import { H1 } from "~/components/Typography";
@@ -82,29 +83,47 @@ export function PostView(props: { meta: PostMeta; result: TransformResult }) {
     Object.values(props.result.steps).sort((a, b) => a.current - b.current);
 
   return (
-    <main class="max-w-2xl mx-auto px-5 pb-20">
-      <div class="mb-12">
-        <A href="/posts" class="text-sm flex items-center gap-2">
-          <ChevronLeft size={16} /> all posts
-        </A>
-      </div>
-
-      <div class="mb-12">
-        <H1>{props.meta.title}</H1>
-        <Show when={props.meta.date}>
-          <p class="text-sm flex items-center gap-2">
-            <Calendar size={16} /> {props.meta.date}
-          </p>
-        </Show>
-      </div>
-
-      <For each={steps()}>
-        {(step) => (
-          <section class="mb-12">
-            <step.Body />
-          </section>
+    <>
+      <Title>{props.meta.title} - Matthias Reis</Title>
+      <Meta name="description" content={props.meta.description} />
+      <Meta property="og:title" content={props.meta.title} />
+      <Meta property="og:description" content={props.meta.description} />
+      <Show when={props.meta.image}>
+        {(img) => (
+          <>
+            <Meta property="og:image" content={img()} />
+            <Meta property="og:image:width" content="1200" />
+            <Meta property="og:image:height" content="675" />
+          </>
         )}
-      </For>
-    </main>
+      </Show>
+      <main class="max-w-2xl mx-auto px-5 pb-20">
+        <div class="mb-12">
+          <A href="/posts" class="text-sm flex items-center gap-2">
+            <ChevronLeft size={16} /> all posts
+          </A>
+        </div>
+
+        <div class="mb-12">
+          <H1 class="text-center">{props.meta.title}</H1>
+          <Show when={props.meta.image}>
+            <img src={props.meta.image} alt={props.meta.title} class="my-5" />
+          </Show>
+          <Show when={props.meta.date}>
+            <p class="text-sm flex items-center justify-end gap-2">
+              <Calendar size={16} /> {props.meta.date}
+            </p>
+          </Show>
+        </div>
+
+        <For each={steps()}>
+          {(step) => (
+            <section class="mb-12">
+              <step.Body />
+            </section>
+          )}
+        </For>
+      </main>
+    </>
   );
 }
