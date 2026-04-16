@@ -138,6 +138,10 @@ work). So I usually work in areas as far away as possible from each other. Or
 But also use the waiting time to continue creating tasks and don't listen to the
 grass growing (as we say in Germany).
 
+## Progress Log
+
+2026-04-16 — Set up `mcp-image` MCP server globally and created `/gen-image` skill in `~/.claude/skills/gen-image/`. The skill outputs four Gemini/Nano Banana prompt variants plus a Midjourney prompt (v7-compatible, no `::` weight syntax) from a loose description. KV image creation is now unblocked — use `/gen-image` with the article concept to generate candidates.
+
 ## Tasks
 
 - [x] Define key points and outline their text

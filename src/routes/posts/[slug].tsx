@@ -26,7 +26,7 @@ export const route: RouteDefinition = {
 
 export default function PostDetail() {
   const params = useParams<{ slug: string }>();
-  const hastData = createAsync(() => getPostHast(params.slug));
+  const hastData = createAsync(() => getPostHast(params.slug), { deferStream: true });
 
   // transform() called here (client-side) — solid-mds converts HAST to Solid components
   const post = createMemo(() => {
